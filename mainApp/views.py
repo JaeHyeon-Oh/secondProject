@@ -7,10 +7,17 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import Http404
 
-from .serializers import mainDirectorySerializer,subDirectorySerializer,detailDirectorySerializer,\
-                            ServiceSerializer,UserSerializer,ExpertSerializer,ReviewSerializer
-from .models import mainDirectory,subDirectory,detailDirectory,Service,User,Expert,Review
+from .serializers import mainDirectorySerializer,subDirectorySerializer,detailDirectorySerializer,ServiceSerializer,UserSerializer,ExpertSerializer,ReviewSerializer,StickyBannerSerializer
+from .models import mainDirectory,subDirectory,detailDirectory,Service,User,Expert,Review,StickyBanner
 # Create your views here.
+
+class StickyBannerList(APIView):
+
+    def get(self, request):
+        stickyBanners = StickyBanner.objects.all()
+
+        serializer = StickyBannerSerializer(stickyBanners, many=True)
+        return Response(serializer.data)
 
 class mainDirectoryList(APIView):
 

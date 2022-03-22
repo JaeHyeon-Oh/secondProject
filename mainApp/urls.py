@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
-from .views import mainDirectoryList,mainDirectoryListDetail,subDirectoryList,detailDirectoryList,ServiceList,UserList, ExpertList, ReviewList
+from .views import mainDirectoryList,mainDirectoryListDetail,subDirectoryList,detailDirectoryList,ServiceList,UserList, ExpertList, ReviewList,StickyBannerList
 
 urlpatterns = [
     # path('review/',ReviewList.as_view()),
@@ -13,6 +13,7 @@ urlpatterns = [
     path('user/', UserList.as_view()),
     path('expert/', ExpertList.as_view()),
     path('review/', ReviewList.as_view()),
+    path('banner/', StickyBannerList.as_view()),
 ]
 
 urlpatterns=format_suffix_patterns(urlpatterns)

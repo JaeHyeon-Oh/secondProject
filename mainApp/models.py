@@ -106,6 +106,13 @@ class Expert(models.Model):
     def __str__(self):
         return self.company_name
 
+class StickyBanner(models.Model):
+    id=models.AutoField(primary_key=True)
+    imageUrl=models.URLField(max_length=2000, null=True)
+    linkUrl=models.URLField(max_length=2000, null=True)
+
+    class Meta:
+        db_table = "stickyBanners"
 #관심사 선택-디자인,it프로그래밍,영상 사진 음향 등등
 # class InterestChoice(models.Model):
 #     interest_name=models.CharField(max_length=10)

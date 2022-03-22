@@ -1,7 +1,11 @@
 from rest_framework import serializers
-from .models import mainDirectory,subDirectory,detailDirectory,Service,User,Expert,Review
+from .models import mainDirectory,subDirectory,detailDirectory,Service,User,Expert,Review,StickyBanner
 
 
+class StickyBannerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StickyBanner
+        fields = ('id', 'linkUrl', 'imageUrl')
 #메인 카테고리-비즈니스,n잡커리어 등등
 class mainDirectorySerializer(serializers.ModelSerializer):
     class Meta:
